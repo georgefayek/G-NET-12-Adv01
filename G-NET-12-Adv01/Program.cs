@@ -85,223 +85,223 @@ namespace G_NET_12_Adv01
             #endregion
             #region Q04
 
-             Q4: What is a generic method? Write Swap<T> method.
+            //Q4: What is a generic method? Write Swap<T> method.
 
-                //    A generic method declares its own type parameter(s). It can exist in both generic and non-generic classes.The compiler often infers the type argument.
+            //    A generic method declares its own type parameter(s). It can exist in both generic and non-generic classes.The compiler often infers the type argument.
 
-                //Example: Swap Method
-                //public static class Utilities
-                //        {
-                //            public static void Swap<T>(ref T a, ref T b)
-                //            {
-                //                T temp = a;
-                //                a = b;
-                //                b = temp;
-                //            }
+            //Example: Swap Method
+            //public static class Utilities
+            //        {
+            //            public static void Swap<T>(ref T a, ref T b)
+            //            {
+            //                T temp = a;
+            //                a = b;
+            //                b = temp;
+            //            }
 
-                //            public static T Max<T>(T a, T b) where T : IComparable<T>
-                //            {
-                //                return a.CompareTo(b) > 0 ? a : b;
-                //            }
-                //        }
+            //            public static T Max<T>(T a, T b) where T : IComparable<T>
+            //            {
+            //                return a.CompareTo(b) > 0 ? a : b;
+            //            }
+            //        }
             #endregion
             #region Q05
-                //Q5: Write a generic method FindMax < T > that finds maximum value
-                //Problem:
+            //Q5: Write a generic method FindMax < T > that finds maximum value
+            //Problem:
 
-                //We cannot compare generic types directly.
+            //We cannot compare generic types directly.
 
-                //Solution:
+            //Solution:
 
-                //            Use IComparable<T> constraint.
+            //            Use IComparable<T> constraint.
 
-                //            Example:
-                //       public static T FindMax<T>(T a, T b) where T : IComparable<T>
-                //{
-                //    if (a.CompareTo(b) > 0)
-                //        return a;
-                //    else
-                //        return b;
-                //}
+            //            Example:
+            //       public static T FindMax<T>(T a, T b) where T : IComparable<T>
+            //{
+            //    if (a.CompareTo(b) > 0)
+            //        return a;
+            //    else
+            //        return b;
+            //}
 
             #endregion
             #region Q06
-                //        Q6: What is a generic interface? Write IRepository<T>.
-                //    Generic interfaces define contracts with type parameters. Classes implementing them specify the actual types.
+            //        Q6: What is a generic interface? Write IRepository<T>.
+            //    Generic interfaces define contracts with type parameters. Classes implementing them specify the actual types.
 
-                //    Example: IRepository Pattern
-                //    public interface IRepository<T> where T : class
-                //            {
-                //    T? GetById(int id);
-                //    IEnumerable<T> GetAll();
-                //    void Add(T entity);
-                //    void Update(T entity);
-                //    void Delete(int id);
-                //}
-                //Implementation
-                //public class UserRepository : IRepository<User>
-                //        {
-                //            private readonly List<User> _users = new();
+            //    Example: IRepository Pattern
+            //    public interface IRepository<T> where T : class
+            //            {
+            //    T? GetById(int id);
+            //    IEnumerable<T> GetAll();
+            //    void Add(T entity);
+            //    void Update(T entity);
+            //    void Delete(int id);
+            //}
+            //Implementation
+            //public class UserRepository : IRepository<User>
+            //        {
+            //            private readonly List<User> _users = new();
 
-                //            public User? GetById(int id)
-                //                => _users.FirstOrDefault(u => u.Id == id);
+            //            public User? GetById(int id)
+            //                => _users.FirstOrDefault(u => u.Id == id);
 
-                //            public IEnumerable<User> GetAll() => _users;
+            //            public IEnumerable<User> GetAll() => _users;
 
-                //            public void Add(User entity) => _users.Add(entity);
-                //            // ... other implementations
-                //        }
+            //            public void Add(User entity) => _users.Add(entity);
+            //            // ... other implementations
+            //        }
             #endregion
             #region Q07
-                //Q7: What is the 'struct' constraint? Write an example.
-                //where T : struct restricts T to value types only.Useful when you need value semantics(copy, no null).
+            //Q7: What is the 'struct' constraint? Write an example.
+            //where T : struct restricts T to value types only.Useful when you need value semantics(copy, no null).
 
-                //public struct Nullable<T> where T : struct
-                //        {
-                //            private readonly bool _hasValue;
-                //            private readonly T _value;
+            //public struct Nullable<T> where T : struct
+            //        {
+            //            private readonly bool _hasValue;
+            //            private readonly T _value;
 
-                //            public bool HasValue => _hasValue;
-                //            public T Value => _hasValue ? _value
-                //                : throw new InvalidOperationException();
+            //            public bool HasValue => _hasValue;
+            //            public T Value => _hasValue ? _value
+            //                : throw new InvalidOperationException();
 
-                //            public Nullable(T value)
-                //            {
-                //                _hasValue = true;
-                //                _value = value;
-                //            }
-                //        }
+            //            public Nullable(T value)
+            //            {
+            //                _hasValue = true;
+            //                _value = value;
+            //            }
+            //        }
             #endregion
             #region Q08
-                //        Q8: What is the 'class' constraint? Write an example
+            //        Q8: What is the 'class' constraint? Write an example
 
-                //        where T : class restricts T to reference types only.This allows T to be null and enables reference comparison.
+            //        where T : class restricts T to reference types only.This allows T to be null and enables reference comparison.
 
-                //        public class Cache<T> where T : class
-                //{
-                //    private T? _cachedItem;
+            //        public class Cache<T> where T : class
+            //{
+            //    private T? _cachedItem;
 
-                //    public T? Get() => _cachedItem;
+            //    public T? Get() => _cachedItem;
 
-                //    public void Set(T item)
-                //    {
-                //        _cachedItem = item;
-                //    }
+            //    public void Set(T item)
+            //    {
+            //        _cachedItem = item;
+            //    }
 
-                //    public void Clear()
-                //    {
-                //        _cachedItem = null; // ✅ Allowed because T is class
-                //    }
+            //    public void Clear()
+            //    {
+            //        _cachedItem = null; // ✅ Allowed because T is class
+            //    }
 
-                //    public bool IsSame(T other)
-                //    {
-                //        return ReferenceEquals(_cachedItem, other);
-                //    }
-                //}
+            //    public bool IsSame(T other)
+            //    {
+            //        return ReferenceEquals(_cachedItem, other);
+            //    }
+            //}
             #endregion
             #region Q09
-                //Q9: What is the 'new()' constraint? Write an example
+            //Q9: What is the 'new()' constraint? Write an example
 
-                //where T : new () requires T to have a public parameterless constructor.This allows you to create instances of T inside the generic code.
+            //where T : new () requires T to have a public parameterless constructor.This allows you to create instances of T inside the generic code.
 
-                //    public class Factory<T> where T : new()
-                //            {
-                //                public T Create()
-                //                {
-                //                    return new T(); // ✅ Allowed because of new() constraint
-                //                }
+            //    public class Factory<T> where T : new()
+            //            {
+            //                public T Create()
+            //                {
+            //                    return new T(); // ✅ Allowed because of new() constraint
+            //                }
 
-                //                public List<T> CreateMany(int count)
-                //                {
-                //                    var list = new List<T>();
-                //                    for (int i = 0; i < count; i++)
-                //                    {
-                //                        list.Add(new T());
-                //                    }
-                //                    return list;
-                //                }
-                //            }
-                //            public class User { public string Name { get; set; } = ""; }
+            //                public List<T> CreateMany(int count)
+            //                {
+            //                    var list = new List<T>();
+            //                    for (int i = 0; i < count; i++)
+            //                    {
+            //                        list.Add(new T());
+            //                    }
+            //                    return list;
+            //                }
+            //            }
+            //            public class User { public string Name { get; set; } = ""; }
 
-                //            var factory = new Factory<User>();
-                //            var users = factory.CreateMany(5); // Creates 5 User instances
-                //    ⚠️ new () must be last if combining with other constraints!
+            //            var factory = new Factory<User>();
+            //            var users = factory.CreateMany(5); // Creates 5 User instances
+            //    ⚠️ new () must be last if combining with other constraints!
             #endregion
             #region Q10
-                //    Q10:  What is the interface constraint? Write an example.
+            //    Q10:  What is the interface constraint? Write an example.
 
-                //    where T : IInterface requires T to implement a specific interface. This enables calling interface methods on type parameter.
+            //    where T : IInterface requires T to implement a specific interface. This enables calling interface methods on type parameter.
 
-                //public class Sorter<T> where T : IComparable<T>
-                //        {
-                //            public void BubbleSort(T[] array)
-                //            {
-                //                for (int i = 0; i < array.Length - 1; i++)
-                //                {
-                //                    for (int j = 0; j < array.Length - i - 1; j++)
-                //                    {
-                //                        // ✅ CompareTo available because of constraint
-                //                        if (array[j].CompareTo(array[j + 1]) > 0)
-                //                        {
-                //                            (array[j], array[j + 1]) = (array[j + 1], array[j]);
-                //                        }
-                //                    }
-                //                }
-                //            }
+            //public class Sorter<T> where T : IComparable<T>
+            //        {
+            //            public void BubbleSort(T[] array)
+            //            {
+            //                for (int i = 0; i < array.Length - 1; i++)
+            //                {
+            //                    for (int j = 0; j < array.Length - i - 1; j++)
+            //                    {
+            //                        // ✅ CompareTo available because of constraint
+            //                        if (array[j].CompareTo(array[j + 1]) > 0)
+            //                        {
+            //                            (array[j], array[j + 1]) = (array[j + 1], array[j]);
+            //                        }
+            //                    }
+            //                }
+            //            }
 
-                //            public T FindMax(T[] array)
-                //            {
-                //                T max = array[0];
-                //                foreach (var item in array)
-                //                {
-                //                    if (item.CompareTo(max) > 0) max = item;
-                //                }
-                //                return max;
-                //            }
-                //        }
+            //            public T FindMax(T[] array)
+            //            {
+            //                T max = array[0];
+            //                foreach (var item in array)
+            //                {
+            //                    if (item.CompareTo(max) > 0) max = item;
+            //                }
+            //                return max;
+            //            }
+            //        }
             #endregion
             #region Q11
-                //        Q11: What is the base class constraint? Write an example.
+            //        Q11: What is the base class constraint? Write an example.
 
-                //        Restricts the type to inherit from a specific base class.
+            //        Restricts the type to inherit from a specific base class.
 
-                //        Example:
+            //        Example:
 
-                //    public class Animal { }
+            //    public class Animal { }
 
-                //public class Example<T> where T : Animal
-                //{
-                //}
+            //public class Example<T> where T : Animal
+            //{
+            //}
             #endregion
             #region Q12
-                //    Q12: How do you apply multiple constraints? Write an example
+            //    Q12: How do you apply multiple constraints? Write an example
 
-                //    //                You can combine multiple constraints for a single type parameter, and have different constraints for different type parameters.
+            //    //                You can combine multiple constraints for a single type parameter, and have different constraints for different type parameters.
 
-                ////Single Type Parameter with Multiple Constraints
-                ////public class EntityManager<T>
-                ////    where T : class, IEntity, new()
-                ////        {
-                ////            public T CreateAndSave()
-                ////            {
-                ////                var entity = new T();      // ✅ new() constraint
-                ////                entity.Id = Guid.NewGuid(); // ✅ IEntity constraint
-                ////                return entity;
-                ////            }
-                ////        }
-                ////        Multiple Type Parameters with Different Constraints
-                ////public class Mapper<TSource, TDest>
-                ////    where TSource : class
-                ////    where TDest : class, new()
-                ////        {
-                ////            public TDest Map(TSource source)
-                ////            {
-                ////                var dest = new TDest();
-                ////                // Copy properties via reflection...
-                ////                return dest;
-                ////            }
-                ////        }
-                ////⚠️ Order matters: class/struct first, then interfaces, then new() last!
+            ////Single Type Parameter with Multiple Constraints
+            ////public class EntityManager<T>
+            ////    where T : class, IEntity, new()
+            ////        {
+            ////            public T CreateAndSave()
+            ////            {
+            ////                var entity = new T();      // ✅ new() constraint
+            ////                entity.Id = Guid.NewGuid(); // ✅ IEntity constraint
+            ////                return entity;
+            ////            }
+            ////        }
+            ////        Multiple Type Parameters with Different Constraints
+            ////public class Mapper<TSource, TDest>
+            ////    where TSource : class
+            ////    where TDest : class, new()
+            ////        {
+            ////            public TDest Map(TSource source)
+            ////            {
+            ////                var dest = new TDest();
+            ////                // Copy properties via reflection...
+            ////                return dest;
+            ////            }
+            ////        }
+            ////⚠️ Order matters: class/struct first, then interfaces, then new() last!
             #endregion
             #region Q13
             //    Q13: What does the 'default' keyword do in generics ?
@@ -330,6 +330,39 @@ namespace G_NET_12_Adv01
             //default(string)  // null
             //default(DateTime) // 0001-01-01
             //💡 Use default when you need to initialize or return a "zero" value without knowing the type.
+            #endregion
+            #region Q14
+            //Q14: Write a SafeList < T > that returns default when the index is invalid.
+
+            //    Problem:
+
+            //    Accessing an invalid index causes errors.
+
+            //    Solution:
+
+            //                Return default value instead.
+
+            //    Example:
+
+            //using System.Collections.Generic;
+
+            //public class SafeList<T>
+            //        {
+            //            private List<T> list = new List<T>();
+
+            //            public void Add(T item)
+            //            {
+            //                list.Add(item);
+            //            }
+
+            //            public T Get(int index)
+            //            {
+            //                if (index >= 0 && index < list.Count)
+            //                    return list[index];
+
+            //                return default(T);
+            //            }
+            //        }
             #endregion
 
 
