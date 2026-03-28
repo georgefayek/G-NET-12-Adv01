@@ -366,35 +366,65 @@ namespace G_NET_12_Adv01
             #endregion
             #region Q15
 
-             //Q15: What is covariance? Explain the 'out' keyword
+            //Q15: What is covariance? Explain the 'out' keyword
 
-             //   Covariance allows you to use a more derived type than originally specified.Marked with out keyword.T can only appear in output positions.
+            //   Covariance allows you to use a more derived type than originally specified.Marked with out keyword.T can only appear in output positions.
 
-             //   Example: IEnumerable is Covariant
-             //   // IEnumerable<out T> - T is covariant
+            //   Example: IEnumerable is Covariant
+            //   // IEnumerable<out T> - T is covariant
 
-             //   class Animal { }
-             //           class Dog : Animal { }
+            //   class Animal { }
+            //           class Dog : Animal { }
 
-             //           IEnumerable<Dog> dogs = new List<Dog> { new Dog() };
+            //           IEnumerable<Dog> dogs = new List<Dog> { new Dog() };
 
-             //           // ✅ Covariance: Dog → Animal (more derived → less derived)
-             //           IEnumerable<Animal> animals = dogs;
-             //           Creating Your Own Covariant Interface
-             //   public interface IProducer<out T>
-             //           {
-             //               T Produce();  // ✅ T in output position
-             //                             // void Consume(T item); // ❌ Would NOT compile!
-             //           }
+            //           // ✅ Covariance: Dog → Animal (more derived → less derived)
+            //           IEnumerable<Animal> animals = dogs;
+            //           Creating Your Own Covariant Interface
+            //   public interface IProducer<out T>
+            //           {
+            //               T Produce();  // ✅ T in output position
+            //                             // void Consume(T item); // ❌ Would NOT compile!
+            //           }
 
-             //           class DogProducer : IProducer<Dog>
-             //           {
-             //               public Dog Produce() => new Dog();
-             //           }
+            //           class DogProducer : IProducer<Dog>
+            //           {
+            //               public Dog Produce() => new Dog();
+            //           }
 
-             //           IProducer<Animal> animalProducer = new DogProducer(); // ✅ Works!
+            //           IProducer<Animal> animalProducer = new DogProducer(); // ✅ Works!
             #endregion
+            #region Q16
+            //Q16: What is contravariance? Explain the 'in' keyword.
 
+            //    Contravariance allows you to use a less derived type than originally specified.Marked with in keyword.T can only appear in input positions.
+
+            //    Example: Action is Contravariant
+            //    // Action<in T> - T is contravariant
+
+            //    class Animal { public void Eat() { } }
+            //            class Dog : Animal { }
+
+            //            Action<Animal> feedAnimal = a => a.Eat();
+
+            //            // ✅ Contravariance: Animal → Dog (less derived → more derived)
+            //            Action<Dog> feedDog = feedAnimal;
+
+            //            feedDog(new Dog()); // Works! Dog is-an Animal
+            //    Creating Your Own Contravariant Interface
+            //    public interface IConsumer<in T>
+            //            {
+            //                void Consume(T item);  // ✅ T in input position
+            //                                       // T Produce(); // ❌ Would NOT compile!
+            //            }
+
+            //            class AnimalFeeder : IConsumer<Animal>
+            //            {
+            //                public void Consume(Animal a) => a.Eat();
+            //            }
+
+            //            IConsumer<Dog> dogFeeder = new AnimalFeeder(); // ✅ Works!
+            #endregion
 
 
     }
