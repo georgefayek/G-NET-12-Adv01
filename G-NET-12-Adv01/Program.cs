@@ -274,34 +274,62 @@ namespace G_NET_12_Adv01
                 //}
             #endregion
             #region Q12
-            //    Q12: How do you apply multiple constraints? Write an example
+                //    Q12: How do you apply multiple constraints? Write an example
 
-            //    //                You can combine multiple constraints for a single type parameter, and have different constraints for different type parameters.
+                //    //                You can combine multiple constraints for a single type parameter, and have different constraints for different type parameters.
 
-            ////Single Type Parameter with Multiple Constraints
-            ////public class EntityManager<T>
-            ////    where T : class, IEntity, new()
-            ////        {
-            ////            public T CreateAndSave()
-            ////            {
-            ////                var entity = new T();      // ✅ new() constraint
-            ////                entity.Id = Guid.NewGuid(); // ✅ IEntity constraint
-            ////                return entity;
-            ////            }
-            ////        }
-            ////        Multiple Type Parameters with Different Constraints
-            ////public class Mapper<TSource, TDest>
-            ////    where TSource : class
-            ////    where TDest : class, new()
-            ////        {
-            ////            public TDest Map(TSource source)
-            ////            {
-            ////                var dest = new TDest();
-            ////                // Copy properties via reflection...
-            ////                return dest;
-            ////            }
-            ////        }
-            ////⚠️ Order matters: class/struct first, then interfaces, then new() last!
+                ////Single Type Parameter with Multiple Constraints
+                ////public class EntityManager<T>
+                ////    where T : class, IEntity, new()
+                ////        {
+                ////            public T CreateAndSave()
+                ////            {
+                ////                var entity = new T();      // ✅ new() constraint
+                ////                entity.Id = Guid.NewGuid(); // ✅ IEntity constraint
+                ////                return entity;
+                ////            }
+                ////        }
+                ////        Multiple Type Parameters with Different Constraints
+                ////public class Mapper<TSource, TDest>
+                ////    where TSource : class
+                ////    where TDest : class, new()
+                ////        {
+                ////            public TDest Map(TSource source)
+                ////            {
+                ////                var dest = new TDest();
+                ////                // Copy properties via reflection...
+                ////                return dest;
+                ////            }
+                ////        }
+                ////⚠️ Order matters: class/struct first, then interfaces, then new() last!
+            #endregion
+            #region Q13
+            //    Q13: What does the 'default' keyword do in generics ?
+
+            //    default(T) or default returns the default value for type T: null for reference types, 0 / false for value types.
+
+            //public class ValueOrDefault<T>
+            //        {
+            //            private T? _value;
+            //            private bool _hasValue;
+
+            //            public T GetValueOrDefault()
+            //            {
+            //                return _hasValue ? _value! : default!;
+            //            }
+
+            //            public T GetValueOrDefault(T fallback)
+            //            {
+            //                return _hasValue ? _value! : fallback;
+            //            }
+            //        }
+
+            //// Usage:
+            //default(int)     // 0
+            //default(bool)    // false
+            //default(string)  // null
+            //default(DateTime) // 0001-01-01
+            //💡 Use default when you need to initialize or return a "zero" value without knowing the type.
             #endregion
 
 
