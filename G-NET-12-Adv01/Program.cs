@@ -196,33 +196,67 @@ namespace G_NET_12_Adv01
                 //}
             #endregion
             #region Q09
-                    //Q9: What is the 'new()' constraint? Write an example
+                //Q9: What is the 'new()' constraint? Write an example
 
-                    //where T : new () requires T to have a public parameterless constructor.This allows you to create instances of T inside the generic code.
+                //where T : new () requires T to have a public parameterless constructor.This allows you to create instances of T inside the generic code.
 
-                    //    public class Factory<T> where T : new()
-                    //            {
-                    //                public T Create()
-                    //                {
-                    //                    return new T(); // ✅ Allowed because of new() constraint
-                    //                }
+                //    public class Factory<T> where T : new()
+                //            {
+                //                public T Create()
+                //                {
+                //                    return new T(); // ✅ Allowed because of new() constraint
+                //                }
 
-                    //                public List<T> CreateMany(int count)
-                    //                {
-                    //                    var list = new List<T>();
-                    //                    for (int i = 0; i < count; i++)
-                    //                    {
-                    //                        list.Add(new T());
-                    //                    }
-                    //                    return list;
-                    //                }
-                    //            }
-                    //            public class User { public string Name { get; set; } = ""; }
+                //                public List<T> CreateMany(int count)
+                //                {
+                //                    var list = new List<T>();
+                //                    for (int i = 0; i < count; i++)
+                //                    {
+                //                        list.Add(new T());
+                //                    }
+                //                    return list;
+                //                }
+                //            }
+                //            public class User { public string Name { get; set; } = ""; }
 
-                    //            var factory = new Factory<User>();
-                    //            var users = factory.CreateMany(5); // Creates 5 User instances
-                    //    ⚠️ new () must be last if combining with other constraints!
+                //            var factory = new Factory<User>();
+                //            var users = factory.CreateMany(5); // Creates 5 User instances
+                //    ⚠️ new () must be last if combining with other constraints!
             #endregion
+            #region Q10
+            //    Q10:  What is the interface constraint? Write an example.
+
+            //    where T : IInterface requires T to implement a specific interface. This enables calling interface methods on type parameter.
+
+            //public class Sorter<T> where T : IComparable<T>
+            //        {
+            //            public void BubbleSort(T[] array)
+            //            {
+            //                for (int i = 0; i < array.Length - 1; i++)
+            //                {
+            //                    for (int j = 0; j < array.Length - i - 1; j++)
+            //                    {
+            //                        // ✅ CompareTo available because of constraint
+            //                        if (array[j].CompareTo(array[j + 1]) > 0)
+            //                        {
+            //                            (array[j], array[j + 1]) = (array[j + 1], array[j]);
+            //                        }
+            //                    }
+            //                }
+            //            }
+
+            //            public T FindMax(T[] array)
+            //            {
+            //                T max = array[0];
+            //                foreach (var item in array)
+            //                {
+            //                    if (item.CompareTo(max) > 0) max = item;
+            //                }
+            //                return max;
+            //            }
+            //        }
+        #endregion
+
 
     }
     }
