@@ -461,9 +461,26 @@ namespace G_NET_12_Adv01
                 ////Console.WriteLine(Counter<string>.Count); // 1
                 ////⚠️ This is a common interview question and source of bugs!
             #endregion
+            #region Q19
+               // Q19: How can you inherit from a generic class?
+                
+               //Generic classes can inherit from other generic or non - generic classes.Several patterns are possible.
+
+               // Pattern 1: Inherit and Pass Type Parameter
+               // public class Repository<T> { /* base */ }
+
+               //         // Derived class is also generic
+               //         public class CachedRepository<T> : Repository<T> { }
+               //         Pattern 2: Inherit with Concrete Type
+               // // Derived class specifies the type
+               // public class UserRepository : Repository<User> { }
+               //         Pattern 3: Add New Type Parameter
+               // // Derived class adds more type parameters
+               // public class KeyedRepository<TKey, TEntity> : Repository<TEntity> { }
+            #endregion
 
 
 
-        }
+    }
     }
 }
