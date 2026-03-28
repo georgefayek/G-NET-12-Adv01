@@ -364,6 +364,37 @@ namespace G_NET_12_Adv01
             //            }
             //        }
             #endregion
+            #region Q15
+
+             //Q15: What is covariance? Explain the 'out' keyword
+
+             //   Covariance allows you to use a more derived type than originally specified.Marked with out keyword.T can only appear in output positions.
+
+             //   Example: IEnumerable is Covariant
+             //   // IEnumerable<out T> - T is covariant
+
+             //   class Animal { }
+             //           class Dog : Animal { }
+
+             //           IEnumerable<Dog> dogs = new List<Dog> { new Dog() };
+
+             //           // ✅ Covariance: Dog → Animal (more derived → less derived)
+             //           IEnumerable<Animal> animals = dogs;
+             //           Creating Your Own Covariant Interface
+             //   public interface IProducer<out T>
+             //           {
+             //               T Produce();  // ✅ T in output position
+             //                             // void Consume(T item); // ❌ Would NOT compile!
+             //           }
+
+             //           class DogProducer : IProducer<Dog>
+             //           {
+             //               public Dog Produce() => new Dog();
+             //           }
+
+             //           IProducer<Animal> animalProducer = new DogProducer(); // ✅ Works!
+            #endregion
+
 
 
     }
