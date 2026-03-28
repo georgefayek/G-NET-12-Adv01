@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.ComponentModel;
+using System.Data;
+using System.Runtime.Intrinsics.X86;
 using System.Timers;
 
 namespace G_NET_12_Adv01
@@ -78,23 +80,43 @@ namespace G_NET_12_Adv01
 
              Q4: What is a generic method? Write Swap<T> method.
 
-                    //    A generic method declares its own type parameter(s). It can exist in both generic and non-generic classes.The compiler often infers the type argument.
+                //    A generic method declares its own type parameter(s). It can exist in both generic and non-generic classes.The compiler often infers the type argument.
 
-                    //Example: Swap Method
-                    //public static class Utilities
-                    //        {
-                    //            public static void Swap<T>(ref T a, ref T b)
-                    //            {
-                    //                T temp = a;
-                    //                a = b;
-                    //                b = temp;
-                    //            }
+                //Example: Swap Method
+                //public static class Utilities
+                //        {
+                //            public static void Swap<T>(ref T a, ref T b)
+                //            {
+                //                T temp = a;
+                //                a = b;
+                //                b = temp;
+                //            }
 
-                    //            public static T Max<T>(T a, T b) where T : IComparable<T>
-                    //            {
-                    //                return a.CompareTo(b) > 0 ? a : b;
-                    //            }
-                    //        }
+                //            public static T Max<T>(T a, T b) where T : IComparable<T>
+                //            {
+                //                return a.CompareTo(b) > 0 ? a : b;
+                //            }
+                //        }
+            #endregion
+            #region Q05
+                //Q5: Write a generic method FindMax < T > that finds maximum value
+                //Problem:
+
+                //We cannot compare generic types directly.
+
+                //Solution:
+
+                //            Use IComparable<T> constraint.
+
+                //            Example:
+                //       public static T FindMax<T>(T a, T b) where T : IComparable<T>
+                //{
+                //    if (a.CompareTo(b) > 0)
+                //        return a;
+                //    else
+                //        return b;
+                //}
+
             #endregion
 
     }
