@@ -25,31 +25,54 @@ namespace G_NET_12_Adv01
 
             #endregion
             #region Q02
-                //    Q2: Write a generic class Container<T> with Add and Get methods.
+            //    Q2: Write a generic class Container<T> with Add and Get methods.
 
-                //    A generic class uses type parameters that are replaced with actual types when you create an instance.The type parameter T acts as a placeholder.
+            //    A generic class uses type parameters that are replaced with actual types when you create an instance.The type parameter T acts as a placeholder.
 
-                //    public class Stack<T>
-                //{
-                //    private T[] _items = new T[100];
-                //    private int _count = 0;
+            //    public class Stack<T>
+            //{
+            //    private T[] _items = new T[100];
+            //    private int _count = 0;
 
-                //    public void Push(T item)
-                //    {
-                //        _items[_count++] = item;
-                //    }
+            //    public void Push(T item)
+            //    {
+            //        _items[_count++] = item;
+            //    }
 
-                //    public T Pop()
-                //    {
-                //        return _items[--_count];
-                //    }
+            //    public T Pop()
+            //    {
+            //        return _items[--_count];
+            //    }
 
-                //    public T Peek() => _items[_count - 1];
+            //    public T Peek() => _items[_count - 1];
 
-                //    public int Count => _count;
-                //}
+            //    public int Count => _count;
+            //}
 
-        #endregion
+            #endregion
+            #region Q03
+                //Q3: What are multiple type parameters? Write Pair<TKey, TValue>.
+
+                //    Generic classes can have multiple type parameters.Common examples: Dictionary<TKey, TValue>, Tuple<T1, T2>
+                //    Example: Generic Pair
+                //        public class Pair<TFirst, TSecond>
+                //                {
+                //                    public TFirst First { get; set; }
+                //                    public TSecond Second { get; set; }
+
+                //                    public Pair(TFirst first, TSecond second)
+                //                    {
+                //                        First = first;
+                //                        Second = second;
+                //                    }
+
+                //                    public void Deconstruct(out TFirst first, out TSecond second)
+                //                    {
+                //                        first = First;
+                //                        second = Second;
+                //                    }
+                //                }
+            #endregion
     }
     }
 }
