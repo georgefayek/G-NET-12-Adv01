@@ -425,8 +425,19 @@ namespace G_NET_12_Adv01
 
             //            IConsumer<Dog> dogFeeder = new AnimalFeeder(); // ✅ Works!
             #endregion
+            #region Q17
+            //Q17: What is the difference between covariance and contravariance?
+
+            //    Aspect Covariance(out)    Contravariance(in)
+            //    Direction Derived → Base Base → Derived
+            //    T Position Output only(return)	Input only(parameter)
+            //    Example IEnumerable<out T>  Action<in T>
+            //    Think of as Producer of T   Consumer of T
+            //    💡 Memory aid: out = output = producer = covariant(child → parent)
+            //    💡 Memory aid: in = input = consumer = contravariant(parent → child)
+            #endregion
 
 
-    }
+        }
     }
 }
