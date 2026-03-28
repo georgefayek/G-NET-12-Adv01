@@ -1,4 +1,5 @@
-﻿using System.Timers;
+﻿using System.ComponentModel;
+using System.Timers;
 
 namespace G_NET_12_Adv01
 {
@@ -23,6 +24,32 @@ namespace G_NET_12_Adv01
 
 
             #endregion
-        }
+            #region Q02
+                //    Q2: Write a generic class Container<T> with Add and Get methods.
+
+                //    A generic class uses type parameters that are replaced with actual types when you create an instance.The type parameter T acts as a placeholder.
+
+                //    public class Stack<T>
+                //{
+                //    private T[] _items = new T[100];
+                //    private int _count = 0;
+
+                //    public void Push(T item)
+                //    {
+                //        _items[_count++] = item;
+                //    }
+
+                //    public T Pop()
+                //    {
+                //        return _items[--_count];
+                //    }
+
+                //    public T Peek() => _items[_count - 1];
+
+                //    public int Count => _count;
+                //}
+
+        #endregion
+    }
     }
 }
