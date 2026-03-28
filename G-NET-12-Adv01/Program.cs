@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Contracts;
 using System.Runtime.Intrinsics.X86;
 using System.Timers;
+using static G_NET_12_Adv01.Program;
 
 namespace G_NET_12_Adv01
 {
@@ -118,6 +120,33 @@ namespace G_NET_12_Adv01
                 //}
 
             #endregion
+            #region Q06
+                //        Q6: What is a generic interface? Write IRepository<T>.
+                //    Generic interfaces define contracts with type parameters. Classes implementing them specify the actual types.
+
+                //    Example: IRepository Pattern
+                //    public interface IRepository<T> where T : class
+                //            {
+                //    T? GetById(int id);
+                //    IEnumerable<T> GetAll();
+                //    void Add(T entity);
+                //    void Update(T entity);
+                //    void Delete(int id);
+                //}
+                //Implementation
+                //public class UserRepository : IRepository<User>
+                //        {
+                //            private readonly List<User> _users = new();
+
+                //            public User? GetById(int id)
+                //                => _users.FirstOrDefault(u => u.Id == id);
+
+                //            public IEnumerable<User> GetAll() => _users;
+
+                //            public void Add(User entity) => _users.Add(entity);
+                //            // ... other implementations
+                //        }
+        #endregion
 
     }
     }
