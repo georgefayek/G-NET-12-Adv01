@@ -1,9 +1,13 @@
-﻿using System.Collections;
+﻿using Microsoft.VisualBasic;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Diagnostics.Contracts;
 using System.Reflection.Metadata;
 using System.Runtime.Intrinsics.X86;
+using System.Security.Cryptography;
+using System.Security.Principal;
 using System.Timers;
 using static G_NET_12_Adv01.Program;
 
@@ -268,9 +272,39 @@ namespace G_NET_12_Adv01
                 //public class Example<T> where T : Animal
                 //{
                 //}
-        #endregion
+            #endregion
+            #region Q12
+            //    Q12: How do you apply multiple constraints? Write an example
+
+            //    //                You can combine multiple constraints for a single type parameter, and have different constraints for different type parameters.
+
+            ////Single Type Parameter with Multiple Constraints
+            ////public class EntityManager<T>
+            ////    where T : class, IEntity, new()
+            ////        {
+            ////            public T CreateAndSave()
+            ////            {
+            ////                var entity = new T();      // ✅ new() constraint
+            ////                entity.Id = Guid.NewGuid(); // ✅ IEntity constraint
+            ////                return entity;
+            ////            }
+            ////        }
+            ////        Multiple Type Parameters with Different Constraints
+            ////public class Mapper<TSource, TDest>
+            ////    where TSource : class
+            ////    where TDest : class, new()
+            ////        {
+            ////            public TDest Map(TSource source)
+            ////            {
+            ////                var dest = new TDest();
+            ////                // Copy properties via reflection...
+            ////                return dest;
+            ////            }
+            ////        }
+            ////⚠️ Order matters: class/struct first, then interfaces, then new() last!
+            #endregion
 
 
     }
-}
+    }
 }
