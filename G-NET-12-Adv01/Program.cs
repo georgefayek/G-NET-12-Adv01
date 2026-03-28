@@ -224,40 +224,53 @@ namespace G_NET_12_Adv01
                 //    ⚠️ new () must be last if combining with other constraints!
             #endregion
             #region Q10
-            //    Q10:  What is the interface constraint? Write an example.
+                //    Q10:  What is the interface constraint? Write an example.
 
-            //    where T : IInterface requires T to implement a specific interface. This enables calling interface methods on type parameter.
+                //    where T : IInterface requires T to implement a specific interface. This enables calling interface methods on type parameter.
 
-            //public class Sorter<T> where T : IComparable<T>
-            //        {
-            //            public void BubbleSort(T[] array)
-            //            {
-            //                for (int i = 0; i < array.Length - 1; i++)
-            //                {
-            //                    for (int j = 0; j < array.Length - i - 1; j++)
-            //                    {
-            //                        // ✅ CompareTo available because of constraint
-            //                        if (array[j].CompareTo(array[j + 1]) > 0)
-            //                        {
-            //                            (array[j], array[j + 1]) = (array[j + 1], array[j]);
-            //                        }
-            //                    }
-            //                }
-            //            }
+                //public class Sorter<T> where T : IComparable<T>
+                //        {
+                //            public void BubbleSort(T[] array)
+                //            {
+                //                for (int i = 0; i < array.Length - 1; i++)
+                //                {
+                //                    for (int j = 0; j < array.Length - i - 1; j++)
+                //                    {
+                //                        // ✅ CompareTo available because of constraint
+                //                        if (array[j].CompareTo(array[j + 1]) > 0)
+                //                        {
+                //                            (array[j], array[j + 1]) = (array[j + 1], array[j]);
+                //                        }
+                //                    }
+                //                }
+                //            }
 
-            //            public T FindMax(T[] array)
-            //            {
-            //                T max = array[0];
-            //                foreach (var item in array)
-            //                {
-            //                    if (item.CompareTo(max) > 0) max = item;
-            //                }
-            //                return max;
-            //            }
-            //        }
+                //            public T FindMax(T[] array)
+                //            {
+                //                T max = array[0];
+                //                foreach (var item in array)
+                //                {
+                //                    if (item.CompareTo(max) > 0) max = item;
+                //                }
+                //                return max;
+                //            }
+                //        }
+            #endregion
+            #region Q11
+                //        Q11: What is the base class constraint? Write an example.
+
+                //        Restricts the type to inherit from a specific base class.
+
+                //        Example:
+
+                //    public class Animal { }
+
+                //public class Example<T> where T : Animal
+                //{
+                //}
         #endregion
 
 
     }
-    }
+}
 }
