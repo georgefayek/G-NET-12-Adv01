@@ -10,6 +10,7 @@ using System.Security.Cryptography;
 using System.Security.Principal;
 using System.Timers;
 using static G_NET_12_Adv01.Program;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace G_NET_12_Adv01
 {
@@ -436,6 +437,31 @@ namespace G_NET_12_Adv01
             //    💡 Memory aid: out = output = producer = covariant(child → parent)
             //    💡 Memory aid: in = input = consumer = contravariant(parent → child)
             #endregion
+            #region Q18
+             Q18: How do static members work in generic types ?
+
+                //Each closed generic type has its own copy of static fields.List<int> and List<string> have separate static data!
+
+                ////public class Counter<T>
+                ////        {
+                ////            public static int Count = 0;
+
+                ////            public Counter()
+                ////            {
+                ////                Count++;
+                ////            }
+                ////        }
+
+                ////        // Each type argument gets its own static Count!
+                ////        var a1 = new Counter<int>();
+                ////        var a2 = new Counter<int>();
+                ////        var b1 = new Counter<string>();
+
+                ////        Console.WriteLine(Counter<int>.Count);    // 2
+                ////Console.WriteLine(Counter<string>.Count); // 1
+                ////⚠️ This is a common interview question and source of bugs!
+            #endregion
+
 
 
         }
