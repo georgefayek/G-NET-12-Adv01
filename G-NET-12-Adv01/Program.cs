@@ -168,6 +168,33 @@ namespace G_NET_12_Adv01
                 //            }
                 //        }
             #endregion
+            #region Q08
+                    //        Q8: What is the 'class' constraint? Write an example
+
+                    //        where T : class restricts T to reference types only.This allows T to be null and enables reference comparison.
+
+                    //        public class Cache<T> where T : class
+                    //{
+                    //    private T? _cachedItem;
+
+                    //    public T? Get() => _cachedItem;
+
+                    //    public void Set(T item)
+                    //    {
+                    //        _cachedItem = item;
+                    //    }
+
+                    //    public void Clear()
+                    //    {
+                    //        _cachedItem = null; // ✅ Allowed because T is class
+                    //    }
+
+                    //    public bool IsSame(T other)
+                    //    {
+                    //        return ReferenceEquals(_cachedItem, other);
+                    //    }
+                    //}
+            #endregion
 
     }
     }
