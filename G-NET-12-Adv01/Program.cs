@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.Common;
 using System.Diagnostics.Contracts;
+using System.Numerics;
 using System.Reflection.Metadata;
 using System.Runtime.Intrinsics.X86;
 using System.Security.Cryptography;
@@ -462,21 +463,61 @@ namespace G_NET_12_Adv01
                 ////⚠️ This is a common interview question and source of bugs!
             #endregion
             #region Q19
-               // Q19: How can you inherit from a generic class?
-                
-               //Generic classes can inherit from other generic or non - generic classes.Several patterns are possible.
+                // Q19: How can you inherit from a generic class?
 
-               // Pattern 1: Inherit and Pass Type Parameter
-               // public class Repository<T> { /* base */ }
+                //Generic classes can inherit from other generic or non - generic classes.Several patterns are possible.
 
-               //         // Derived class is also generic
-               //         public class CachedRepository<T> : Repository<T> { }
-               //         Pattern 2: Inherit with Concrete Type
-               // // Derived class specifies the type
-               // public class UserRepository : Repository<User> { }
-               //         Pattern 3: Add New Type Parameter
-               // // Derived class adds more type parameters
-               // public class KeyedRepository<TKey, TEntity> : Repository<TEntity> { }
+                // Pattern 1: Inherit and Pass Type Parameter
+                // public class Repository<T> { /* base */ }
+
+                //         // Derived class is also generic
+                //         public class CachedRepository<T> : Repository<T> { }
+                //         Pattern 2: Inherit with Concrete Type
+                // // Derived class specifies the type
+                // public class UserRepository : Repository<User> { }
+                //         Pattern 3: Add New Type Parameter
+                // // Derived class adds more type parameters
+                // public class KeyedRepository<TKey, TEntity> : Repository<TEntity> { }
+            #endregion
+            #region Q20
+                //Q20: Complete Exercise -Create a generic Cache < TKey, TValue> with Add, Get, Remove, Contains, and expiration support.
+
+                //using System;
+                //    using System.Collections.Generic;
+
+                //public class Cache<TKey, TValue>
+                //{
+                //    private Dictionary<TKey, (TValue value, DateTime expiry)> data
+                //        = new Dictionary<TKey, (TValue, DateTime)>();
+
+                //    public void Add(TKey key, TValue value, int seconds)
+                //    {
+                //        data[key] = (value, DateTime.Now.AddSeconds(seconds));
+                //    }
+
+                //    public TValue Get(TKey key)
+                //    {
+                //        if (data.ContainsKey(key))
+                //        {
+                //            var item = data[key];
+
+                //            if (DateTime.Now < item.expiry)
+                //                return item.value;
+                //        }
+
+                //        return default(TValue);
+                //    }
+
+                //    public void Remove(TKey key)
+                //    {
+                //        data.Remove(key);
+                //    }
+
+                //    public bool Contains(TKey key)
+                //    {
+                //        return data.ContainsKey(key);
+                //    }
+                //}
             #endregion
 
 
