@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections;
+using System.ComponentModel;
 using System.Timers;
 
 namespace G_NET_12_Adv01
@@ -51,28 +52,51 @@ namespace G_NET_12_Adv01
 
             #endregion
             #region Q03
-                //Q3: What are multiple type parameters? Write Pair<TKey, TValue>.
+            //Q3: What are multiple type parameters? Write Pair<TKey, TValue>.
 
-                //    Generic classes can have multiple type parameters.Common examples: Dictionary<TKey, TValue>, Tuple<T1, T2>
-                //    Example: Generic Pair
-                //        public class Pair<TFirst, TSecond>
-                //                {
-                //                    public TFirst First { get; set; }
-                //                    public TSecond Second { get; set; }
+            //    Generic classes can have multiple type parameters.Common examples: Dictionary<TKey, TValue>, Tuple<T1, T2>
+            //    Example: Generic Pair
+            //        public class Pair<TFirst, TSecond>
+            //                {
+            //                    public TFirst First { get; set; }
+            //                    public TSecond Second { get; set; }
 
-                //                    public Pair(TFirst first, TSecond second)
-                //                    {
-                //                        First = first;
-                //                        Second = second;
-                //                    }
+            //                    public Pair(TFirst first, TSecond second)
+            //                    {
+            //                        First = first;
+            //                        Second = second;
+            //                    }
 
-                //                    public void Deconstruct(out TFirst first, out TSecond second)
-                //                    {
-                //                        first = First;
-                //                        second = Second;
-                //                    }
-                //                }
+            //                    public void Deconstruct(out TFirst first, out TSecond second)
+            //                    {
+            //                        first = First;
+            //                        second = Second;
+            //                    }
+            //                }
             #endregion
+            #region Q04
+
+             Q4: What is a generic method? Write Swap<T> method.
+
+                    //    A generic method declares its own type parameter(s). It can exist in both generic and non-generic classes.The compiler often infers the type argument.
+
+                    //Example: Swap Method
+                    //public static class Utilities
+                    //        {
+                    //            public static void Swap<T>(ref T a, ref T b)
+                    //            {
+                    //                T temp = a;
+                    //                a = b;
+                    //                b = temp;
+                    //            }
+
+                    //            public static T Max<T>(T a, T b) where T : IComparable<T>
+                    //            {
+                    //                return a.CompareTo(b) > 0 ? a : b;
+                    //            }
+                    //        }
+            #endregion
+
     }
     }
 }
