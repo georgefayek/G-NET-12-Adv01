@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics.Contracts;
+using System.Reflection.Metadata;
 using System.Runtime.Intrinsics.X86;
 using System.Timers;
 using static G_NET_12_Adv01.Program;
@@ -146,7 +147,27 @@ namespace G_NET_12_Adv01
                 //            public void Add(User entity) => _users.Add(entity);
                 //            // ... other implementations
                 //        }
-        #endregion
+            #endregion
+            #region Q07
+                //Q7: What is the 'struct' constraint? Write an example.
+                //where T : struct restricts T to value types only.Useful when you need value semantics(copy, no null).
+
+                //public struct Nullable<T> where T : struct
+                //        {
+                //            private readonly bool _hasValue;
+                //            private readonly T _value;
+
+                //            public bool HasValue => _hasValue;
+                //            public T Value => _hasValue ? _value
+                //                : throw new InvalidOperationException();
+
+                //            public Nullable(T value)
+                //            {
+                //                _hasValue = true;
+                //                _value = value;
+                //            }
+                //        }
+            #endregion
 
     }
     }
