@@ -169,31 +169,59 @@ namespace G_NET_12_Adv01
                 //        }
             #endregion
             #region Q08
-                    //        Q8: What is the 'class' constraint? Write an example
+                //        Q8: What is the 'class' constraint? Write an example
 
-                    //        where T : class restricts T to reference types only.This allows T to be null and enables reference comparison.
+                //        where T : class restricts T to reference types only.This allows T to be null and enables reference comparison.
 
-                    //        public class Cache<T> where T : class
-                    //{
-                    //    private T? _cachedItem;
+                //        public class Cache<T> where T : class
+                //{
+                //    private T? _cachedItem;
 
-                    //    public T? Get() => _cachedItem;
+                //    public T? Get() => _cachedItem;
 
-                    //    public void Set(T item)
-                    //    {
-                    //        _cachedItem = item;
-                    //    }
+                //    public void Set(T item)
+                //    {
+                //        _cachedItem = item;
+                //    }
 
-                    //    public void Clear()
-                    //    {
-                    //        _cachedItem = null; // ✅ Allowed because T is class
-                    //    }
+                //    public void Clear()
+                //    {
+                //        _cachedItem = null; // ✅ Allowed because T is class
+                //    }
 
-                    //    public bool IsSame(T other)
-                    //    {
-                    //        return ReferenceEquals(_cachedItem, other);
-                    //    }
-                    //}
+                //    public bool IsSame(T other)
+                //    {
+                //        return ReferenceEquals(_cachedItem, other);
+                //    }
+                //}
+            #endregion
+            #region Q09
+                    //Q9: What is the 'new()' constraint? Write an example
+
+                    //where T : new () requires T to have a public parameterless constructor.This allows you to create instances of T inside the generic code.
+
+                    //    public class Factory<T> where T : new()
+                    //            {
+                    //                public T Create()
+                    //                {
+                    //                    return new T(); // ✅ Allowed because of new() constraint
+                    //                }
+
+                    //                public List<T> CreateMany(int count)
+                    //                {
+                    //                    var list = new List<T>();
+                    //                    for (int i = 0; i < count; i++)
+                    //                    {
+                    //                        list.Add(new T());
+                    //                    }
+                    //                    return list;
+                    //                }
+                    //            }
+                    //            public class User { public string Name { get; set; } = ""; }
+
+                    //            var factory = new Factory<User>();
+                    //            var users = factory.CreateMany(5); // Creates 5 User instances
+                    //    ⚠️ new () must be last if combining with other constraints!
             #endregion
 
     }
